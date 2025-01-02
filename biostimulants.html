@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biostimulants</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('images/logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #32cd32;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .buttons-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .button {
+            background-color: rgba(34, 139, 34, 0.8);
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .button:hover {
+            background-color: rgba(34, 139, 34, 1);
+            transform: translateY(-3px);
+        }
+
+        .button:active {
+            background-color: rgba(34, 139, 34, 0.7);
+            transform: translateY(0);
+        }
+
+        .content-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            color: white;
+            text-align: left;
+        }
+
+        .content-container.active {
+            display: block;
+        }
+
+        .next-button {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(34, 139, 34, 0.8);
+            color: white;
+            font-size: 1em;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .next-button:hover {
+            background-color: rgba(34, 139, 34, 1);
+            transform: translateY(-3px);
+        }
+
+        .next-button:active {
+            background-color: rgba(34, 139, 34, 0.7);
+            transform: translateY(0);
+        }
+
+        .next-button .arrow-icon {
+            font-size: 1.2em;
+            margin-left: 10px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .button {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+
+            .next-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            .button {
+                font-size: 0.8em;
+                padding: 8px 10px;
+            }
+
+            .next-button {
+                font-size: 0.8em;
+                padding: 8px 10px;
+            }
+
+            .container {
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biostimulants</h1>
+        <p>Select an option to learn more about Biostimulants.</p>
+
+        <!-- Box for Buttons -->
+        <div class="box">
+            <!-- Buttons -->
+            <div class="buttons-container">
+                <button class="button" onclick="showContent('organic')">Organic</button>
+                <button class="button" onclick="showContent('generic')">Generic</button>
+            </div>
+        </div>
+
+        <!-- Content Containers -->
+        <div id="organic" class="content-container">
+            <h2>Organic Biostimulants</h2>
+            <p>Organic biostimulants are derived from natural sources, such as plant extracts, seaweed, and humic substances. They enhance nutrient absorption, improve plant growth, and increase resistance to stress.</p>
+        </div>
+
+        <div id="generic" class="content-container">
+            <h2>Generic Biostimulants</h2>
+            <p>Generic biostimulants are synthesized products that include mineral-based compounds. They enhance plant metabolism, support growth, and improve overall crop yield efficiency.</p>
+        </div>
+
+        <a href="info.html" class="next-button">
+            Back to Main <span class="arrow-icon">&#8592;</span>
+        </a>
+    </div>
+
+    <script>
+        function showContent(type) {
+            // Hide all content containers
+            const contents = document.querySelectorAll('.content-container');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Show the selected content
+            const selectedContent = document.getElementById(type);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

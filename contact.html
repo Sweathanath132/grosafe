@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #28a745;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: #fff;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            max-width: 700px;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .contact-form button:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-top: 30px;
+        }
+
+        iframe {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000;
+            width: 100px;
+            height: 150px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .container {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+
+            .contact-form input, .contact-form textarea {
+                width: 85%;
+            }
+
+            iframe {
+                width: 320px;
+                height: 480px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3.5em;
+            }
+
+            .contact-form input, .contact-form textarea {
+                width: 80%;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            iframe {
+                width: 320px;
+                height: 480px;
+            }
+        }
+
+        /* For smaller screens (mobile) */
+        @media (max-width: 767px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar a {
+                padding: 15px;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            iframe {
+                width: 80px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="content">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions, suggestions, or need more information, feel free to reach out to us using the form below.</p>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <input type="text" id="name" placeholder="Your Name" required><br><br>
+                    <input type="email" id="email" placeholder="Your Email" required><br><br>
+                    <textarea id="message" placeholder="Your Message" rows="4" required></textarea><br>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Plant Nutrient Details. All Rights Reserved.</p>
+    </div>
+    <iframe src="chatbot/chatbot.html"></iframe>
+</body>
+</html>

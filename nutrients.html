@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macronutrients and Micronutrients</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('images/logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 100px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #32cd32;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .tab-titles {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab-titles li a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: rgba(34, 139, 34, 0.8);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1em;
+        }
+
+        .tab-titles li a:hover {
+            background-color: rgba(34, 139, 34, 1);
+            transform: translateY(-3px);
+        }
+
+        .tab-titles li a:active {
+            background-color: rgba(34, 139, 34, 0.7);
+            transform: translateY(0);
+        }
+
+        .next-button {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(34, 139, 34, 0.8);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1em;
+        }
+
+        .next-button:hover {
+            background-color: rgba(34, 139, 34, 1);
+            transform: translateY(-3px);
+        }
+
+        .next-button:active {
+            background-color: rgba(34, 139, 34, 0.7);
+            transform: translateY(0);
+        }
+
+        .next-button .arrow-icon {
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #606261;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1em;
+            }
+
+            .tab-titles li a {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+
+            .next-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 60px 10px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .tagline {
+                font-size: 0.9em;
+            }
+
+            .tab-titles li a {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+
+            .next-button {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+    </div>
+    <div class="container">
+        <h1>Macronutrients & Micronutrients</h1>
+        <p class="tagline">Understanding the Essential Nutrients for Plant Health</p>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <ul class="tab-titles">
+                <li><a href="primary.html">Primary Macronutrients</a></li>
+                <li><a href="secondary.html">Secondary Macronutrients</a></li>
+                <li><a href="micronutrients.html">Micronutrients</a></li>
+            </ul>
+        </div>
+
+        <!-- Navigation Button -->
+        <a href="info.html" class="next-button">
+            Back to Main <span class="arrow-icon">&#8592;</span>
+        </a>
+    </div>
+    <iframe src="chatbot/chatbot.html" width="320" height="480" style="border:none; position: fixed; bottom: 70px; right: 20px; z-index: 1000;"></iframe>
+</body>
+</html>

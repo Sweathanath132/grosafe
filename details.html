@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Nutrient Details</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('images/logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(245, 242, 242);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #606261;
+        }
+
+        /* Main Content Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            padding-top: 60px; /* Adjust padding to avoid navbar */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .content {
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .content img {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .buttons button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .buttons button:hover {
+            background: #218838;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: none;
+            transition: background-color 0.3s;
+        }
+
+        #backToTop:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar a {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 15px;
+                margin-top: 15px;
+            }
+
+            .buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px;
+            }
+
+            .buttons button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+                margin: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .buttons button {
+                font-size: 0.8em;
+                padding: 8px 12px;
+                margin: 5px;
+            }
+
+            .content {
+                padding: 10px;
+                margin-top: 10px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+</div>
+
+<div class="container">
+    <h1 id="nutrientHeader">Nutrient Details</h1>
+    
+    <div class="buttons" id="infoButtons"></div>
+
+    <div class="content" id="infoContent"></div>
+</div>
+
+
+<script>
+    const deficiencyData = {
+        Nitrogen: {
+            Antagonism: "Excess nitrogen inhibits uptake of phosphorus, potassium, calcium, magnesium, and sulfur, and can disrupt soil pH and microbial activity.",
+            Stimulation: "Nitrogen promotes chlorophyll formation, photosynthesis, protein synthesis, and vegetative growth. It supports cell division, flowering, and fruiting, improving plant metabolism and productivity.",
+            Functions: "Nitrogen is essential for proteins, DNA/RNA, chlorophyll, and energy transfer (ATP). It drives plant metabolism, root and shoot growth, and overall vigor, ensuring higher yield quality.",
+            Deficiency: "Symptoms include yellowing of older leaves, stunted growth, weak stems, poor root development, delayed flowering, smaller fruits, and reduced protein content in crops.",
+            "Factors affecting availability": "Availability depends on soil pH, temperature, aeration, organic matter, microbial activity, fertilizer type, and leaching or erosion, which can cause nitrogen loss.",
+            "Sensitive Crops": "High-demand crops like cereals, leafy vegetables, sugarcane, legumes, and turfgrass need nitrogen for proper growth, while nitrogen-sensitive crops show quick deficiency symptoms.",
+            Images: {
+                Deficiency: "https://www.kiwicare.co.nz/assets/Uploads/Nitrogen-Deficiency.JPG"
+            }
+        },
+        Phosphorus: {
+            Antagonism: "Excess phosphorus reduces uptake of zinc, iron, and copper. Imbalances can inhibit calcium and magnesium absorption and disrupt microbial activity in soil.",
+            Stimulation: "Encourages root development, flowering, seed formation, and energy transfer. It boosts plant metabolism and enhances early growth stages.",
+            Functions: "Vital for energy transfer (ATP/ADP), nucleic acids (DNA/RNA), cell division, enzyme activation, and photosynthesis. It ensures strong roots and reproductive development.",
+            Deficiency: "Dark green or purple-tinged leaves, stunted growth, poor root systems, delayed flowering, and low yield. Symptoms often appear on older leaves first.",
+            "Factors affecting availability": "Influenced by soil pH, temperature, organic matter, and microbial activity. Fixation in acidic or alkaline soils reduces phosphorus availability.",
+            "Sensitive Crops": "High-demand crops include cereals, legumes, root vegetables, and fruits like tomatoes. Poor phosphorus availability impacts yield and quality significantly.",
+            Images: {
+                Deficiency: "https://www.growerssecret.com/hubfs/phosphorous-deficiency-600B.png"
+            }
+        },
+        Potassium: {
+                "Antagonism": "Excess potassium inhibits magnesium, calcium, and nitrogen uptake, disrupting nutrient balance. High sodium levels can also interfere with potassium absorption.",
+                "Stimulation": "Enhances photosynthesis, water regulation, enzyme activation, and disease resistance. It improves stress tolerance, flowering, and fruit quality.",
+                "Functions": "Regulates stomatal opening, water balance, enzyme activation, and carbohydrate transport. It strengthens cell walls and increases crop quality and yield.",
+                "Deficiency": "Yellowing and browning of leaf edges (scorch), weak stems, poor root growth, reduced disease resistance, and lower fruit quality. Symptoms appear first on older leaves.",
+                "Factors affecting availability": "Influenced by soil texture, pH, and cation exchange capacity (CEC). Sandy soils and heavy leaching reduce availability, while clay soils may fix potassium.",
+                "Sensitive Crops": "High-demand crops include cereals, root crops (potatoes), sugarcane, fruits (bananas), and vegetables. Deficiency impacts yield and quality significantly.",
+                "Images": {
+                    "Deficiency": "https://agritech.tnau.ac.in/horticulture/plant_nutri/images/banana/b_pota1.jpg"
+                }
+            },
+            Calcium: { 
+                Antagonism: "Excess calcium can reduce magnesium, potassium, and phosphorus uptake. High sodium or potassium levels can also inhibit calcium absorption.",
+                Stimulation: "Promotes root and shoot growth, cell division, and cell wall strength. It enhances stress tolerance and resistance to diseases.",
+                Functions: "Essential for cell wall structure, membrane stability, enzyme activity, and root growth. It aids in nutrient transport and overall plant health.",
+                Deficiency: "Symptoms include blossom-end rot in fruits, tip burn in leaves, distorted or brittle new growth, and weak root systems.",
+                "Factors affecting availability": "Low soil pH, poor drainage, and high salinity reduce calcium availability. Sandy soils often lack sufficient calcium",
+                "Sensitive Crops": "High-demand crops include fruits (tomatoes, apples), leafy vegetables, and legumes. Calcium deficiency severely impacts quality and yield.",
+                Images: {
+                    
+                    Deficiency: "https://www.canna-uk.com/sites/united_kingdom/files/2021-02/teaser-calcium-deficiency-guide.jpg"
+                     
+                }
+                },
+            Magnesium:{
+                Antagonism: "Excess potassium, calcium, or ammonium reduces magnesium uptake. Imbalances in soil cations disrupt its availability.",
+                  Stimulation: "Boosts chlorophyll production, enzyme activation, and carbohydrate metabolism. It enhances photosynthesis and nutrient transport.",
+                  Functions: " Essential for chlorophyll synthesis, enzyme activity, and energy transfer in photosynthesis. It supports protein synthesis and phosphorus metabolism.",
+                  Deficiency: "Interveinal chlorosis (yellowing between veins) on older leaves, leaf curling, poor root development, and reduced yield and quality.",
+                  "Factors affecting availability": "Affected by soil pH (low in acidic soils), cation competition, and leaching in sandy soils. Proper liming enhances availability.",
+                  "Sensitive Crops": " Crucial for leafy vegetables, cereals, sugarcane, and fruits like citrus. Deficiency can severely reduce productivity and crop quality.",
+                  Images: {
+                      
+                      Deficiency: "https://www.haifa-group.com/sites/default/files/Bean%20Mg_0.jpg"
+                       
+                  }
+                  },
+                  Iron: { 
+                    Antagonism: "Excess phosphorus, calcium, manganese, and zinc can inhibit iron uptake. High soil pH and bicarbonates also reduce iron availability.",
+                    Stimulation: "Promotes chlorophyll synthesis, photosynthesis, and respiration. Enhances enzyme activity and energy transfer processes in plants.",
+                    Functions: "Essential for chlorophyll formation, electron transport in photosynthesis, and nitrogen metabolism. Supports plant respiration and enzymatic functions.",
+                    Deficiency: "Causes interveinal chlorosis (yellowing between veins) on young leaves, poor growth, and reduced photosynthetic efficiency. Severe cases lead to leaf whitening.",
+                    "Factors affecting availability": " Reduced in alkaline or calcareous soils, high pH, waterlogging, and low organic matter. Chelated forms improve availability in adverse conditions.",
+                    "Sensitive Crops": " Iron-sensitive crops include rice, citrus, soybean, maize, and legumes. Deficiency is common in calcareous or alkaline soils.",
+                    Images: {
+                        
+                        Deficiency: "https://www.yates.co.nz/media/plants/problem-solver/pr-tn-problem-iron-deficiency.jpg?rmode=boxpad&ranchor=center&quality=100&width=506&height=253"
+                    }
+                },
+                Zinc: {
+                      Antagonism: " High phosphorus, calcium, and iron levels can inhibit zinc uptake. Excess zinc can interfere with copper and manganese absorption.",
+                     Stimulation: "Stimulates enzyme activity, protein synthesis, and chlorophyll production. Enhances seed formation, growth, and stress tolerance.",
+                     Functions: "Essential for enzyme activation, hormone production (auxins), protein synthesis, and chlorophyll formation. Supports growth and reproductive development.",
+                     Deficiency: "Stunted growth, interveinal chlorosis, small and distorted leaves, delayed flowering, and reduced yield. Symptoms often appear in young leaves.",
+                     "Factors affecting availability": "Influenced by soil pH, organic matter, and phosphate levels. Alkaline soils and waterlogged conditions reduce zinc availability.",
+                     "Sensitive Crops": "Zinc-demanding crops include cereals (rice, maize, wheat), legumes, citrus, and vegetables. Deficiency impacts growth and yield significantly.",
+                     Images: {
+                         
+                         Deficiency: "https://plagron.com/en/img/assets/asset/aW1hZ2VzL2dyb3dfdG9waWNzL2hvYmJ5L2RlZmljaWVuY2llcy96aW5jL3ppbmNfY29udGVudF9kZWZhdWx0LmpwZw==?w=624&h=415&s=30f5d2aa282521416f8405c6c89e9f49",
+                         
+                     }
+             },
+             Sulphur: { 
+              Antagonism: "Excess sulfur can reduce nitrogen, molybdenum, and phosphorus uptake. High sulfate levels may affect calcium and magnesium availability.",
+              Stimulation: "Promotes protein synthesis, chlorophyll production, and root growth. Enhances stress resistance and improves oil and flavor quality in crops.",
+              Functions: " Essential for amino acids, proteins, vitamins, and enzymes. Aids in chlorophyll formation and nitrogen metabolism, supporting overall plant growth.",
+              Deficiency: "Yellowing of younger leaves, stunted growth, delayed maturity, and poor root development. Symptoms resemble nitrogen deficiency but affect newer leaves first.",
+              "Factors affecting availability": "Dependent on soil organic matter, pH, and microbial activity. Leaching in sandy soils and low organic matter reduce sulfur availability.",
+              "Sensitive Crops": "High-demand crops include oilseeds (mustard, sunflower), legumes, cereals, and leafy vegetables. Deficiency lowers yield, oil quality, and overall crop performance.",
+              Images: {
+                  
+                  Deficiency: "https://ideacdn.net/idea/bx/58/myassets/blogs/kukurt-eksikligi.jpg?revision=1692779078"
+                   
+              }
+              },
+              Boron: { 
+                Antagonism: "Excess boron is toxic and can reduce uptake of potassium, calcium, and magnesium. High calcium levels can interfere with boron availability.",
+                Stimulation: "Promotes cell wall strength, sugar transport, and flowering. Enhances pollen viability, seed formation, and overall plant growth.",
+                Functions: "Essential for cell wall structure, carbohydrate metabolism, and reproductive development. Supports hormone regulation and nutrient transport.",
+                Deficiency: "Symptoms include brittle stems, hollow roots, poor fruit/seed set, distorted growth, and tip dieback. It affects new growth and reproductive organs.",
+                "Factors affecting availability": " Influenced by soil pH (low in alkaline soils), moisture levels, and organic matter. Drought and leaching reduce boron availability.",
+                "Sensitive Crops": "Boron-sensitive crops include root vegetables (carrots, beets), oilseeds (mustard), fruits (apples, grapes), and legumes. Deficiency reduces yield and quality.",
+                Images: {
+                    
+                    Deficiency: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAJmHz-bNaiPJ87V9bvIWzYZ_5ihuu42nmOA&s"
+                     
+                }
+                },
+                Copper: { 
+                  Antagonism: "High levels of zinc, iron, and molybdenum can reduce copper uptake. Excess copper may inhibit phosphorus and molybdenum availability.",
+                  Stimulation: "Enhances enzyme activity, photosynthesis, and lignin synthesis. Improves disease resistance, reproductive growth, and grain quality.",
+                  Functions: " Vital for enzyme activation, photosynthetic electron transport, protein metabolism, and lignin formation for structural strength.",
+                  Deficiency: "Symptoms include wilting, chlorosis in younger leaves, reduced flowering, poor grain filling, and weak stems. Leaf tips may die (tip burn).",
+                  "Factors affecting availability": " Influenced by soil pH (low in alkaline soils), organic matter, and drainage. Waterlogged or sandy soils reduce copper availability.",
+                  "Sensitive Crops": "Copper-sensitive crops include cereals (wheat, barley), legumes, citrus, and vegetables. Deficiency affects growth, yield, and disease resistance.",
+                  Images: {
+                      
+                      Deficiency: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Qpbwb_dAyxYJmQKNPb7yppGluuAf-HGpCw&s"
+                       
+                  }
+                  },
+                  Molybdenum: { 
+                    Antagonism: "High sulfur or iron levels can inhibit molybdenum uptake. Excess molybdenum may reduce copper absorption, causing imbalances.",
+                    Stimulation: "Promotes nitrogen fixation in legumes and enzyme activity for nitrogen and phosphorus metabolism. Enhances growth and seed formation.",
+                    Functions: "Essential for nitrogen metabolism, nitrate reduction, and enzyme activation. It supports nitrogen fixation in legumes and protein synthesis.",
+                    Deficiency: "Symptoms include yellowing or mottling of older leaves, poor nitrogen uptake, stunted growth, and malformed leaves (whiptail in cauliflower).",
+                    "Factors affecting availability": "Availability increases in alkaline soils but decreases in acidic soils. Leaching in sandy soils and low pH limit molybdenum uptake.",
+                    "Sensitive Crops": "Sensitive crops include legumes, brassicas (cauliflower, broccoli), and cereals. Deficiency significantly impacts nitrogen fixation and growth.",
+                    Images: {
+                        
+                        Deficiency: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdGio8EhqouN_fx_ZWPSMbzqmrsYwp-s-1xA&s"
+                         
+                    }
+                    }
+
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const nutrient = urlParams.get('nutrient');
+
+    if (nutrient && deficiencyData[nutrient]) {
+        document.getElementById('nutrientHeader').innerText = nutrient;
+
+        const buttons = Object.keys(deficiencyData[nutrient])
+            .filter(key => key !== "Images") // Exclude the 'Images' key
+            .map(key => `<button onclick="showInfo('${nutrient}', '${key}')">${key}</button>`)
+            .join('');
+        document.getElementById('infoButtons').innerHTML = buttons;
+
+        const contentDiv = document.getElementById('infoContent');
+
+        window.showInfo = function(nutrient, key) {
+            const data = deficiencyData[nutrient][key];
+            if (key === 'Deficiency') { // Show image only for 'Deficiency'
+                contentDiv.innerHTML = `<img src="${deficiencyData[nutrient].Images.Deficiency}" alt="${nutrient} ${key}"><p><strong>${key}:</strong> ${data}</p>`;
+            } else {
+                contentDiv.innerHTML = `<p><strong>${key}:</strong> ${data}</p>`;
+            }
+            contentDiv.style.display = 'block'; // Show content
+        };
+    } else {
+        document.getElementById('infoContent').innerText = "No data available.";
+    }
+
+    // Back to Top Button functionality
+    window.onscroll = function() {
+        const backToTop = document.getElementById('backToTop');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
+    };
+</script>
+
+</body>
+</html> 

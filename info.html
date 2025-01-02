@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrients, Pesticides, and Biostimulants</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('images/logo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #32cd32;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .tabs {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            background: #28a745;
+            color: #fff;
+            width: 100%;
+            max-width: 250px;
+            padding: 15px;
+            text-align: center;
+            font-size: 1em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons a:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        .buttons a:active {
+            background: #1e7e34;
+            transform: scale(1);
+        }
+
+        .footer {
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        #pesticides {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .back-home {
+            display: inline-block;
+            background: #acf199;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .back-home:hover {
+            background: #76ed96;
+            transform: scale(1.05);
+        }
+
+        iframe {
+            border: none;
+            position: fixed;
+            bottom: 20px;
+            right: 10px;
+            width: 90%;
+            max-width: 320px;
+            height: 70%;
+            max-height: 480px;
+            z-index: 1000;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            .tagline {
+                font-size: 1.5em;
+            }
+
+            .buttons a {
+                font-size: 1.2em;
+                padding: 15px 20px;
+            }
+
+            iframe {
+                bottom: 30px;
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 100px;
+            }
+
+            .tabs {
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nutrients, Pesticides & Biostimulants</h1>
+        <p class="tagline">Key Components for Modern Agriculture</p>
+
+        <div class="tabs">
+            <div class="buttons">
+                <a href="nutrients.html">Nutrients</a>
+                <a href="biostimulants.html">Biostimulants</a>
+                <a href="#" id="pesticidesBtn">Pesticides</a>
+            </div>
+            <div id="pesticides">
+                <h2>Herbicides</h2>
+                <p>Herbicides control unwanted weeds that compete with crops for nutrients and water.</p>
+
+                <h2>Insecticides</h2>
+                <p>Insecticides help manage harmful insects, protecting crops from damage and improving yields.</p>
+
+                <h2>Fungicides</h2>
+                <p>Fungicides prevent and treat fungal infections, ensuring healthier plants and higher productivity.</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-home">Back to Home</a>
+    </div>
+
+    <iframe src="chatbot/chatbot.html"></iframe>
+
+    <div class="footer">
+        &copy; 2025 Modern Agriculture Solutions
+    </div>
+
+    <script>
+        const pesticidesBtn = document.getElementById('pesticidesBtn');
+        const pesticidesContent = document.getElementById('pesticides');
+
+        pesticidesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            pesticidesContent.style.display = pesticidesContent.style.display === "block" ? "none" : "block";
+        });
+    </script>
+</body>
+</html>
